@@ -12,17 +12,17 @@ import java.util.List;
 @Builder
 @Data
 @Document
-public class Pedido {
+public class Order {
     @Id
     private String id;
     private List<Item> itens;
-    private BigDecimal valorTotal;
-    private LocalDateTime dataCriacao;
-    private LocalDateTime dataAtualizacao;
+    private BigDecimal totalValue;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public BigDecimal getValorTotal() {
+    public BigDecimal getTotalValue() {
         return itens.stream()
-                .map(Item::getValorTotalItem)
+                .map(Item::getTotalItemValue)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

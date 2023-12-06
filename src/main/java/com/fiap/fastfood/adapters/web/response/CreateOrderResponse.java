@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class CriarPedidoResponse {
+public class CreateOrderResponse {
     private String id;
 }

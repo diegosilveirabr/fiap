@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Item {
 
-    private String idProduto;
-    private Integer quantidade;
-    private BigDecimal valorItem;
+    private String idProduct;
+    private Integer quantity;
+    private BigDecimal itemValue;
 
-    public BigDecimal getValorTotalItem() {
-        return valorItem.multiply(BigDecimal.valueOf(quantidade));
+    public BigDecimal getTotalItemValue() {
+        return itemValue.multiply(BigDecimal.valueOf(quantity));
     }
 }
