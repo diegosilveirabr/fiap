@@ -15,11 +15,11 @@ db.createUser(
     }
 )
 
-db.createCollection("attendant");
-db.createCollection("client");
-db.createCollection("order");
-db.createCollection("product");
-db.createCollection("payment");
+db.createCollection("Attendant");
+db.createCollection("Client");
+db.createCollection("Order");
+db.createCollection("Product");
+db.createCollection("Payment");
 
 //db.followers.insertMany([
 //    {
