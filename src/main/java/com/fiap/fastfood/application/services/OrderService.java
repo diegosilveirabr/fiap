@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderService implements CreateOrderUseCase {
 
-    @Autowired
-    //TODO: acabei tendo que colocar o autowired porque ele não reconheceu o required args constructor, não sei se eu fiz algo errado
-    private SaveOrderPort saveOrderPort;
+   private final SaveOrderPort saveOrderPort;
 
     @Override
     public void createOrder(Order order) {

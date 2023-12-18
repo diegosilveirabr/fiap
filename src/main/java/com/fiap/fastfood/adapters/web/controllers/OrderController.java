@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/orders")
 public class OrderController {
 
-    @Autowired //TODO: acabei tendo que colocar o autowired porque ele não reconheceu o required args constructor, não sei se eu fiz algo errado
-    private CreateOrderUseCase createOrderUseCase;
+   private final CreateOrderUseCase createOrderUseCase;
 
     @PostMapping
     public void criarOrder(@RequestBody CreateOrderRequest request) {
