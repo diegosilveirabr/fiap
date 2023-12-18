@@ -1,0 +1,52 @@
+# 🚀 FIAP : Challenge Pós-Tech Software Architecture
+## 🍔 Projeto Fast Food | Arquitetura Hexagonal
+
+Projeto realizado para a Fase 1 da Pós-Graduação de Arquitetura de Sistemas da FIAP. O sistema deste projeto foi construído utilizando Arquitetura Hexagonal (Ports and Adapters) como ensinado no módulo, para estudar este padrão de uso difundido no mercado.
+
+### 👨‍🏫 Grupo
+
+Integrantes:
+- Diego S. Silveira (RM352891)
+- Giovanna H. B. Albuquerque (RM352679)
+- Kelvin Vieira (RM??)
+- Wellington (RM352970)
+
+### 💻 Tecnologias
+
+Tecnologias utilizadas:
+
+* Java 17
+* Spring Framework
+* Gradle
+* MongoDB
+* Docker
+
+### 👓 Serviços Utilizados
+
+* Github
+* Postman
+* Docker Desktop 
+* MongoDB Compass
+
+### 💿 Getting started - Rodando localmente
+
+Faça o download ou clone este projeto e abra em uma IDE (preferencialmente IntelliJ).
+É preciso ter:
+
+    - Java 17
+    - Docker instalado na máquina
+    - plugin do Lombok na IDE
+
+🚨 Passo-a-passo:
+
+1. Prepare sua IDE colocando o Java 17 nas configurações do projeto
+2. Importe um projeto como um projeto Gradle (botão direito em ```src > build.gradle > import Gradle Project```)
+3. Aguarde a instalação das dependências
+4. Migre para a pasta local-infra-fiap-fastfood e, no terminal, execute o comando: ```docker-compose-up```
+5. Um container com um banco de dados MongoDB será inicializados na porta 27017
+6. Abra a classe FastFoodApplication e execute a aplicação
+7. Para chamar os endpoints, você pode importar a collection em ```miscellaneous > FIAP_FastFood.postman_collection.json``` para o seu Postman.
+
+## Versioning
+
+1.0.0.0
