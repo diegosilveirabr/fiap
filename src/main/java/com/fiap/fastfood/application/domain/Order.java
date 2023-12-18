@@ -1,7 +1,7 @@
 package com.fiap.fastfood.application.domain;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,10 +9,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Builder
+@Accessors(chain = true)
 @Data
 @Document
 public class Order {
+
     @Id
     private String id;
     private List<Item> itens;
