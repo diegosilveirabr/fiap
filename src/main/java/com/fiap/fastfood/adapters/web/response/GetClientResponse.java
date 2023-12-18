@@ -1,6 +1,5 @@
 package com.fiap.fastfood.adapters.web.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

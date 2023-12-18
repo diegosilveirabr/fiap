@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SpringDataMongoClientRepository extends MongoRepository<Client, String> {
 
+    Client findByCpf(String cpf);
 }
