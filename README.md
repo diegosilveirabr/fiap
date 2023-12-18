@@ -11,6 +11,13 @@ Integrantes:
 - Kelvin Vieira (RM??)
 - Wellington (RM352970)
 
+### 📍 DDD
+
+Estudos de Domain Driven Design (DDD) como Domain StoryTelling, EventStorming, Linguagem Ubíqua foram feitos na ferramenta MIRO pelo grupo.
+Os resultados destes estudos estão disponíveis no link abaixo:
+
+**🔗 MIRO com DDD: https://miro.com/app/board/uXjVNMo8BCE=/?share_link_id=24975843522**
+
 ### 💻 Tecnologias
 
 Tecnologias utilizadas:
