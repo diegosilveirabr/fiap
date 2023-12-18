@@ -18,7 +18,7 @@ public class OrderController {
    private final CreateOrderUseCase createOrderUseCase;
 
     @PostMapping
-    public void criarOrder(@RequestBody CreateOrderRequest request) {
+    public void createOrder(@RequestBody CreateOrderRequest request) {
         //createOrderUseCase.createOrder(request());
     }
 }
