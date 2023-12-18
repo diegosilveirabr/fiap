@@ -10,9 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderRepository implements SaveOrderPort {
 
-    @Autowired
-    //TODO: acabei tendo que colocar o autowired porque ele não reconheceu o required args constructor, não sei se eu fiz algo errado
-    private SpringDataMongoOrderRepository repository;
+    private final SpringDataMongoOrderRepository repository;
 
     @Override
     public void saveOrder(Order order) {
