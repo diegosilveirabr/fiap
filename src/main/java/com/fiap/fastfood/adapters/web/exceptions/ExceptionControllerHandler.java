@@ -1,4 +1,4 @@
-package com.fiap.fastfood.adapters.web.exception;
+package com.fiap.fastfood.adapters.web.exceptions;
 
 import com.fiap.fastfood.application.exceptions.custom.ClientNotFoundException;
 import com.fiap.fastfood.application.exceptions.custom.CpfAlreadyInUseException;
