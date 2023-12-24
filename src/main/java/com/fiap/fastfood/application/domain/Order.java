@@ -11,7 +11,7 @@ import java.util.List;
 
 @Accessors(chain = true)
 @Data
-@Document
+@Document //TODO: acho que essas entidades de domínio não deveriam ser entidades
 public class Order {
 
     @Id
