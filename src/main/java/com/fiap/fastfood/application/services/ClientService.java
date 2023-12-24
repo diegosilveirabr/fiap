@@ -18,6 +18,9 @@ public class ClientService implements RegisterClientUseCase, GetClientByCpfUseCa
 
     @Override
     public Client registerClient(Client client) {
+        final var
+
+
         return saveClientPort.saveClient(client);
     }
 
