@@ -7,7 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class CustomError {
 
-    private String code;
     private String message;
     private String field;
     private Object attemptedValue;

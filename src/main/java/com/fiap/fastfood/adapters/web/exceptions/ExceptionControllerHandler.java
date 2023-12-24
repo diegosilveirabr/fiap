@@ -1,7 +1,7 @@
 package com.fiap.fastfood.adapters.web.exceptions;
 
-import com.fiap.fastfood.application.exceptions.custom.ClientNotFoundException;
-import com.fiap.fastfood.application.exceptions.custom.CpfAlreadyInUseException;
+import com.fiap.fastfood.application.exceptions.custom.AlreadyRegisteredException;
+import com.fiap.fastfood.application.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.application.exceptions.model.ExceptionDetails;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,8 @@ public class ExceptionControllerHandler extends ResponseEntityExceptionHandler {
     //TODO: ADICIONAR EXCEÇÕES CUSTOMIZADAS QUE FOREM FEITAS
 
 
-    @ExceptionHandler(value = {CpfAlreadyInUseException.class})
-    public ResponseEntity<ExceptionDetails> resourceException(CpfAlreadyInUseException ex, WebRequest request) {
+    @ExceptionHandler(value = {AlreadyRegisteredException.class})
+    public ResponseEntity<ExceptionDetails> resourceException(AlreadyRegisteredException ex, WebRequest request) {
 
         final var message = new ExceptionDetails(
                 "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
@@ -27,13 +27,14 @@ public class ExceptionControllerHandler extends ResponseEntityExceptionHandler {
                 ex.getCode(),
                 ex.getMessage(),
                 HttpStatus.BAD_REQUEST.value(),
-                new Date());
+                new Date(),
+                ex.getErrors());
 
         return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(value = {ClientNotFoundException.class})
-    public ResponseEntity<ExceptionDetails> resourceException(ClientNotFoundException ex, WebRequest request) {
+    @ExceptionHandler(value = {EntityNotFoundException.class})
+    public ResponseEntity<ExceptionDetails> resourceException(EntityNotFoundException ex, WebRequest request) {
 
         final var message = new ExceptionDetails(
                 "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
@@ -41,7 +42,8 @@ public class ExceptionControllerHandler extends ResponseEntityExceptionHandler {
                 ex.getCode(),
                 ex.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
-                new Date());
+                new Date(),
+                ex.getErrors());
 
         return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
     }
@@ -57,7 +59,8 @@ public class ExceptionControllerHandler extends ResponseEntityExceptionHandler {
                 ex.getClass().toString(),
                 ex.getMessage(),
                 status.value(),
-                new Date());
+                new Date(),
+                null);
 
         ex.printStackTrace();
 

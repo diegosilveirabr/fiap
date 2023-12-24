@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,4 +21,6 @@ public class ExceptionDetails {
     private Integer status;
 
     private Date date;
+
+    private List<CustomError> errors;
 }

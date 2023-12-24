@@ -1,4 +1,4 @@
-package com.fiap.fastfood.application.validators;
+package com.fiap.fastfood.application.validators.interfaces;
 
 import com.fiap.fastfood.application.domain.Client;
 

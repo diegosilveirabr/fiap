@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class ValidationResult {
 
-    private Boolean isValid;
+    private Boolean isValid = true;
     private List<CustomError> errors = new ArrayList<>();
 
 }
