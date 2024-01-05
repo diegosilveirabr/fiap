@@ -2,6 +2,7 @@ package com.fiap.fastfood.adapters.persistence;
 
 import com.fiap.fastfood.application.domain.Product;
 import com.fiap.fastfood.application.domain.ProductTypeEnum;
+import com.fiap.fastfood.application.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.application.port.outgoing.DeleteProductPort;
 import com.fiap.fastfood.application.port.outgoing.FindByTypePort;
 import com.fiap.fastfood.application.port.outgoing.SaveProductPort;
@@ -36,21 +37,21 @@ public class ProductRepository implements SaveProductPort, DeleteProductPort, Up
     public Product updateProductPort(String id, Product product) {
         Optional<Product> existsProduct = repository.findById(id);
 
-        if (existsProduct.isPresent()) {
-            Product newProduct = existsProduct.get();
-            newProduct.setName(product.getName());
-            newProduct.setPrice(product.getPrice());
-            newProduct.setDescription(product.getDescription());
-            newProduct.setType(product.getType());
-            newProduct.setUpdatedAt(LocalDateTime.now());
-            return repository.save(newProduct);
+        if (existsProduct.isEmpty()) {
+            return null;
         }
 
-        return product;
+        Product newProduct = existsProduct.get();
+        newProduct.setName(product.getName());
+        newProduct.setPrice(product.getPrice());
+        newProduct.setDescription(product.getDescription());
+        newProduct.setType(product.getType());
+        newProduct.setUpdatedAt(LocalDateTime.now());
+        return repository.save(newProduct);
     }
 
     @Override
-    public List<Product> findByType(ProductTypeEnum type){
+    public List<Product> findByType(ProductTypeEnum type) {
         return repository.findByType(type);
     }
 }

@@ -6,12 +6,13 @@ import com.fiap.fastfood.adapters.web.request.CreateProductRequest;
 import com.fiap.fastfood.adapters.web.request.UpdateProductRequest;
 import com.fiap.fastfood.application.domain.Product;
 import com.fiap.fastfood.application.domain.ProductTypeEnum;
+import com.fiap.fastfood.application.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.application.services.ProductService;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
 
     private final ProductService productService;
 
@@ -34,7 +36,7 @@ public class ProductController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<BaseProductResponse> updateProduct(@PathVariable String id, @RequestBody UpdateProductRequest request) {
+    public ResponseEntity<BaseProductResponse> updateProduct(@PathVariable String id, @RequestBody UpdateProductRequest request) throws EntityNotFoundException {
         Product newProduct = productService.updateProduct(id, ProductBuilder.toDomain(request, LocalDateTime.now()));
         return ResponseEntity.ok(ProductBuilder.toResponse(newProduct));
     }
