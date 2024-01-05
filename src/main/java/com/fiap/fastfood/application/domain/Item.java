@@ -1,12 +1,16 @@
 package com.fiap.fastfood.application.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-@Builder
+@Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item {
