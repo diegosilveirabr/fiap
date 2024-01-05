@@ -1,6 +1,5 @@
 package com.fiap.fastfood.adapters.builders;
 
-import com.fiap.fastfood.adapters.web.request.BaseProductRequest;
 import com.fiap.fastfood.adapters.web.request.BaseProductResponse;
 import com.fiap.fastfood.adapters.web.request.CreateProductRequest;
 import com.fiap.fastfood.adapters.web.request.UpdateProductRequest;
@@ -16,7 +15,7 @@ public class ProductBuilder {
     }
 
     public static Product toDomain(UpdateProductRequest request, LocalDateTime timestamp) {
-        return buildProductFromRequest(request, LocalDateTime.now());
+        return buildUpdateProductFromRequest(request, LocalDateTime.now());
     }
 
     public static BaseProductResponse toResponse(Product product) {
@@ -42,7 +41,7 @@ public class ProductBuilder {
                 .build();
     }
 
-    private static <BaseProductRequest> Product buildProductFromRequest(UpdateProductRequest request, LocalDateTime updatedAt) {
+    private static <BaseProductRequest> Product buildUpdateProductFromRequest(UpdateProductRequest request, LocalDateTime updatedAt) {
         return Product.builder()
                 .name(request.getName())
                 .price(request.getPrice())
