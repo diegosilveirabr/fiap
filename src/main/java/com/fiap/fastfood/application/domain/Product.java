@@ -2,6 +2,7 @@ package com.fiap.fastfood.application.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -17,6 +18,7 @@ public class Product {
     private String name;
     private BigDecimal price;
     private String description;
+    @Indexed
     private ProductTypeEnum type;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

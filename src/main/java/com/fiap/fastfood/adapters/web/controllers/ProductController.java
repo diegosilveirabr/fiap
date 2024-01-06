@@ -8,10 +8,10 @@ import com.fiap.fastfood.application.domain.Product;
 import com.fiap.fastfood.application.domain.ProductTypeEnum;
 import com.fiap.fastfood.application.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.application.services.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -29,7 +29,7 @@ public class ProductController {
 
 
     @PostMapping
-    public ResponseEntity<BaseProductResponse> createProduct(@RequestBody CreateProductRequest request) {
+    public ResponseEntity<BaseProductResponse> createProduct(@Valid @RequestBody CreateProductRequest request) {
         Product product = productService.createProduct(ProductBuilder.toDomain(request));
         return ResponseEntity.created(URI.create(product.getId())).body(ProductBuilder.toResponse(product));
     }
