@@ -20,6 +20,7 @@ db.createCollection("Client");
 db.createCollection("Order");
 db.createCollection("Product");
 db.createCollection("Payment");
+db.createCollection("Checkout");
 
 //db.followers.insertMany([
 //    {
