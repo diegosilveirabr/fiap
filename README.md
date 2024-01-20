@@ -9,7 +9,7 @@ Integrantes:
 - Diego S. Silveira (RM352891)
 - Giovanna H. B. Albuquerque (RM352679)
 - Kelvin Vieira (RM352728)
-- Wellington (RM352970)
+- Wellington Vieira (RM352970)
 
 ### 📍 DDD
 
