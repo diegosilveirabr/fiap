@@ -8,7 +8,7 @@ Projeto realizado para a Fase 1 da Pós-Graduação de Arquitetura de Sistemas d
 Integrantes:
 - Diego S. Silveira (RM352891)
 - Giovanna H. B. Albuquerque (RM352679)
-- Kelvin Vieira (RM??)
+- Kelvin Vieira (RM352728)
 - Wellington (RM352970)
 
 ### 📍 DDD
@@ -34,6 +34,7 @@ Tecnologias utilizadas:
 * Postman
 * Docker Desktop 
 * MongoDB Compass
+* Swagger
 
 ### 💿 Getting started - Rodando localmente
 
@@ -52,8 +53,7 @@ Faça o download ou clone este projeto e abra em uma IDE (preferencialmente Inte
 4. Migre para a pasta local-infra-fiap-fastfood e, no terminal, execute o comando: ```docker-compose-up```
 5. Um container com um banco de dados MongoDB será inicializados na porta 27017
 6. Abra a classe FastFoodApplication e execute a aplicação
-7. Para chamar os endpoints, você pode importar a collection em ```miscellaneous > FIAP_FastFood.postman_collection.json``` para o seu Postman.
-
+7. Para chamar os endpoints, você pode ver as rotas no link ```http://localhost:8080/swagger-ui/index.html```
 ## Versioning
 
 1.0.0.0
