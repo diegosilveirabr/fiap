@@ -38,8 +38,7 @@ Tecnologias utilizadas:
 
 ### 🎬 Getting started - Rodando com docker-compose
 
-Faça o download ou clone este projeto e abra em uma IDE (preferencialmente IntelliJ).
-É preciso ter:
+Faça o download ou clone este projeto. É preciso ter:
 
     - Docker instalado na máquina
 
