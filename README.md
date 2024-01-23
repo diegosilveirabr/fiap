@@ -45,7 +45,8 @@ Faça o download ou clone este projeto. É preciso ter:
 🚨 Passo-a-passo:
 
 1. Abra o projeto no seu explorador de arquivos
-2. Na pasta raiz, execute o comando ```docker image build -t fastfood-fiap-api .``` para gerar a imagem do projeto
+2. Inicie buildando o projeto e gerando o arquivo ```.jar``` com o comando ```./gradlew build```
+3. Na pasta raiz, execute o comando ```docker image build -t fastfood-fiap-api .``` para gerar a imagem do projeto
 4. Migre para a pasta local-infra-fiap-fastfood e, no terminal, execute o comando: ```docker-compose up```
 5. Um container com a aplicação e um banco de dados MongoDB serão inicializados nas portas 8080 e 27017 respectivamente
    1. Se possuir Docker Desktop, veja os containers rodando nele.
