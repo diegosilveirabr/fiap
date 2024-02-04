@@ -1,14 +1,14 @@
 package com.fiap.fastfood.adapters.persistence;
 
-import com.fiap.fastfood.application.domain.Product;
-import com.fiap.fastfood.application.domain.ProductTypeEnum;
+import com.fiap.fastfood.adapters.persistence.orm.ProductORM;
+import com.fiap.fastfood.adapters.persistence.orm.ProductTypeEnumORM;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface SpringDataMongoProductRepository extends MongoRepository<Product, String> {
+public interface SpringDataMongoProductRepository extends MongoRepository<ProductORM, String> {
 
-    List<Product> findByType(ProductTypeEnum type);
+    List<ProductORM> findByType(ProductTypeEnumORM type);
 }

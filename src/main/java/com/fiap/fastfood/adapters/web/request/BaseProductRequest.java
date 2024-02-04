@@ -16,17 +16,17 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseProductRequest {
-        @NotBlank(message = "The name cannot be blank")
-        @Size(min = 3, message = "The name must have at least 3 letters")
-        String name;
+    @NotBlank(message = "The name cannot be blank")
+    @Size(min = 3, message = "The name must have at least 3 letters")
+    String name;
 
-        @NotNull(message = "The price must be a not null")
-        @Positive(message = "The price must be a positive value")
-        BigDecimal price;
+    @NotNull(message = "The price must be a not null")
+    @Positive(message = "The price must be a positive value")
+    BigDecimal price;
 
-        @NotBlank(message = "Description cannot be blank")
-        String description;
+    @NotBlank(message = "Description cannot be blank")
+    String description;
 
-        @NotBlank(message = "The type cannot be blank")
-        String type;
+    @NotBlank(message = "The type cannot be blank")
+    String type;
 }
