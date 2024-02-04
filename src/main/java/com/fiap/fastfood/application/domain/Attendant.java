@@ -14,7 +14,6 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Document
 public class Attendant extends Person {
 
     @MongoId

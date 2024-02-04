@@ -1,4 +1,4 @@
-package com.fiap.fastfood.application.domain;
+package com.fiap.fastfood.adapters.persistence.orm;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,9 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client extends Person {
+@Document
+public class ClientORM extends PersonORM {
 
+    @MongoId
     private String id;
 }

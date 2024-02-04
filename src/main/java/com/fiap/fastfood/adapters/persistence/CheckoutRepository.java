@@ -1,11 +1,13 @@
 package com.fiap.fastfood.adapters.persistence;
 
+import com.fiap.fastfood.adapters.builders.CheckoutBuilder;
 import com.fiap.fastfood.application.domain.Checkout;
 import com.fiap.fastfood.application.port.outgoing.CheckoutPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Repository
@@ -16,11 +18,14 @@ public class CheckoutRepository implements CheckoutPort {
 
     @Override
     public void save(Checkout checkout) {
-        springDataMongoCheckoutRepository.save(checkout);
+        final var orm = CheckoutBuilder.fromDomainToOrm(checkout);
+        springDataMongoCheckoutRepository.save(orm);
     }
 
     @Override
     public List<Checkout> findAll() {
-        return springDataMongoCheckoutRepository.findAllByOrderByCreatedAtAsc();
+        final var orms = springDataMongoCheckoutRepository.findAllByOrderByCreatedAtAsc();
+        final var checkouts = orms.stream().map(orm -> CheckoutBuilder.fromOrmToDomain(orm)).collect(Collectors.toList());
+        return checkouts;
     }
 }

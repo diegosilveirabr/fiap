@@ -1,4 +1,4 @@
-package com.fiap.fastfood.application.domain;
+package com.fiap.fastfood.adapters.persistence.orm;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,13 +11,16 @@ import java.time.LocalDateTime;
 
 @Builder
 @Data
-public class Product {
+@Document
+public class ProductORM {
 
+    @MongoId
     private String id;
     private String name;
     private BigDecimal price;
     private String description;
-    private ProductTypeEnum type;
+    @Indexed
+    private ProductTypeEnumORM type;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
