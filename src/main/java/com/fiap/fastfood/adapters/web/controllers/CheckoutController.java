@@ -19,12 +19,12 @@ public class CheckoutController {
     private final CheckoutUseCase checkoutUseCase;
 
     @PostMapping
-    public void checkout(@RequestBody CheckoutRequest request){
+    public void checkout(@RequestBody CheckoutRequest request) {
         checkoutUseCase.submit(CheckoutBuilder.fromRequestToDomain(request));
     }
 
     @GetMapping
-    public ResponseEntity<List<CheckoutResponse>> findAll(){
+    public ResponseEntity<List<CheckoutResponse>> findAll() {
         return ResponseEntity.ok(checkoutUseCase.findAll().stream()
                 .map(CheckoutBuilder::fromDomainToResponse)
                 .collect(Collectors.toList()));

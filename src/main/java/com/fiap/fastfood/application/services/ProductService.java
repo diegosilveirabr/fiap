@@ -41,7 +41,7 @@ public class ProductService implements ProductUseCase {
 
         final var newProduct = updateProduct.updateProduct(id, product);
 
-        if (newProduct == null){
+        if (newProduct == null) {
             logger.error("not found product with id = {}", id);
             throw new EntityNotFoundException(
                     product.getId(),

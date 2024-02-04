@@ -20,7 +20,7 @@ public class CheckoutService implements CheckoutUseCase {
     }
 
     @Override
-    public List<Checkout> findAll(){
+    public List<Checkout> findAll() {
         return checkoutPort.findAll();
     }
 }

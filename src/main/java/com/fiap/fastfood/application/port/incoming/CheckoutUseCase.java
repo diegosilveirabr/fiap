@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface CheckoutUseCase {
     void submit(Checkout checkout);
+
     List<Checkout> findAll();
 }
