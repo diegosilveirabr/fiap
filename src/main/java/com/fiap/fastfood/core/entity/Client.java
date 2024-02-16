@@ -1,5 +1,6 @@
 package com.fiap.fastfood.core.entity;
 
+import com.fiap.fastfood.common.exceptions.model.CustomError;
 import com.fiap.fastfood.common.validation.ValidationResult;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +18,11 @@ public class Client extends Person {
 
     private String id;
 
-    public static ValidationResult validate(Client client) {
-        /*final var validationResult = new ValidationResult();
+    public static ValidationResult validate(Client client, Boolean cpfInUse) {
+        final var validationResult = new ValidationResult();
         final var cpf = client.getCpf();
 
-        if (validateCpfInUse(cpf)) {
+        if (cpfInUse) {
             validationResult.getErrors().add(
                     new CustomError(
                             "CPF document number informed for registration is already in use.",
@@ -32,16 +33,7 @@ public class Client extends Person {
         if (!validationResult.getErrors().isEmpty())
             validationResult.setIsValid(false);
 
-        return validationResult;*/
-        return null;
+        return validationResult;
     }
 
-
-    private static boolean validateCpfInUse(String cpf) {
-        /*final var clientUsingCpf = getClientByCpfPort.getClientByCpf(cpf);
-
-        return clientUsingCpf != null;*
-         */
-        return false;
-    }
 }

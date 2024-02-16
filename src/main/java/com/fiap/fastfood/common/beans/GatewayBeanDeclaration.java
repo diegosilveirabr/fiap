@@ -1,31 +1,40 @@
 package com.fiap.fastfood.common.beans;
 
-import com.fiap.fastfood.common.interfaces.usecase.CheckoutUseCase;
-import com.fiap.fastfood.common.interfaces.usecase.ClientUseCase;
-import com.fiap.fastfood.common.interfaces.usecase.OrderUseCase;
-import com.fiap.fastfood.common.interfaces.usecase.ProductUseCase;
-import com.fiap.fastfood.core.usecase.CheckoutUseCaseImpl;
-import com.fiap.fastfood.core.usecase.ClientUseCaseImpl;
-import com.fiap.fastfood.core.usecase.OrderUseCaseImpl;
-import com.fiap.fastfood.core.usecase.ProductUseCaseImpl;
-import org.springframework.stereotype.Component;
+import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoCheckoutRepository;
+import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoClientRepository;
+import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoOrderRepository;
+import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoProductRepository;
+import com.fiap.fastfood.common.interfaces.gateways.CheckoutGateway;
+import com.fiap.fastfood.common.interfaces.gateways.ClientGateway;
+import com.fiap.fastfood.common.interfaces.gateways.OrderGateway;
+import com.fiap.fastfood.common.interfaces.gateways.ProductGateway;
+import com.fiap.fastfood.communication.gateways.CheckoutGatewayImpl;
+import com.fiap.fastfood.communication.gateways.ClientGatewayImpl;
+import com.fiap.fastfood.communication.gateways.OrderGatewayImpl;
+import com.fiap.fastfood.communication.gateways.ProductGatewayImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@Component
+@Configuration
 public class GatewayBeanDeclaration {
 
-    public CheckoutUseCase checkoutUseCase() {
-        return new CheckoutUseCaseImpl();
+    @Bean
+    public CheckoutGateway checkoutGateway(SpringDataMongoCheckoutRepository repository) {
+        return new CheckoutGatewayImpl(repository);
     }
 
-    public ClientUseCase clientUseCase() {
-        return new ClientUseCaseImpl();
+    @Bean
+    public ClientGateway clientGateway(SpringDataMongoClientRepository repository) {
+        return new ClientGatewayImpl(repository);
     }
 
-    public OrderUseCase orderUseCase() {
-        return new OrderUseCaseImpl();
+    @Bean
+    public OrderGateway orderGateway(SpringDataMongoOrderRepository repository) {
+        return new OrderGatewayImpl(repository);
     }
 
-    public ProductUseCase productUseCase() {
-        return new ProductUseCaseImpl();
+    @Bean
+    public ProductGateway productGateway(SpringDataMongoProductRepository repository) {
+        return new ProductGatewayImpl(repository);
     }
 }

@@ -9,4 +9,6 @@ public interface ClientUseCase {
     Client getClientByCpf(String cpf, ClientGateway clientGateway) throws EntityNotFoundException;
 
     Client registerClient(Client client, ClientGateway clientGateway) throws AlreadyRegisteredException;
+
+    Boolean validateCpfInUse(String cpf, ClientGateway clientGateway);
 }
