@@ -1,7 +1,7 @@
 # 🚀 FIAP : Challenge Pós-Tech Software Architecture
-## 🍔 Projeto Fast Food | Arquitetura Hexagonal
+## 🍔 Projeto Fast Food | Arquitetura Limpa
 
-Projeto realizado para a Fase 1 da Pós-Graduação de Arquitetura de Sistemas da FIAP. O sistema deste projeto foi construído utilizando Arquitetura Hexagonal (Ports and Adapters) como ensinado no módulo, para estudar este padrão de uso difundido no mercado.
+Projeto realizado para a Fase 2 da Pós-Graduação de Arquitetura de Sistemas da FIAP. O sistema deste projeto foi construído utilizando Arquitetura Limpa como ensinado no módulo, para estudar este padrão de uso difundido no mercado.
 
 ### 👨‍🏫 Grupo
 
@@ -17,6 +17,34 @@ Estudos de Domain Driven Design (DDD) como Domain StoryTelling, EventStorming, L
 Os resultados destes estudos estão disponíveis no link abaixo:
 
 **🔗 MIRO com DDD: https://miro.com/app/board/uXjVNMo8BCE=/?share_link_id=24975843522**
+
+### 🎯 Clean Architecture
+
+Projeto feito com base no repositório demonstrado em aula por Erick Muller.
+
+**🔗 Referência: https://github.com/proferickmuller/fiap-cleanarch-na-pratica**
+
+
+```
+## Regras:
+
+0. Faça **uma coisa de cada vez**.
+1. Sempre comece pelo use case. Implemente o primeiro use case, implemente as entidades que ele usa, defina tudo o que ele precisa pra funcionar (via interfaces), e depois construa o controller para fazer o use case funcionar, e crie as interfaces necessárias. Depois disso, ajuste os Presenters e Gateways.
+2. Não comece pela API ou pelo banco de dados. No máximo tenha um desenho de api para comunicar com o mundo exterior, mas que pode ajudar na definição dos casos de uso. *O uso define o contexto, e não o contrário*.
+3. Esqueça os frameworks nesse momento. foque nas três camadas internas.
+4. Use interfaces para todos os lugares onde é necessário a injeção de dependência.
+5. Se quiser testar um caso de uso com gateway, use um "fornecedor de dados" falso (*mock*). Depois você pode implementar o acesso ao banco de dados.
+
+## Heurísticas
+
+Pequenos passos te levam longe. Ciclos curtos e bem definidos.
+
+Entenda e defina -> Construa -> Teste -> Disponibilize.
+```
+
+### 📐 Desenho de Solução (Arquitetura)
+
+TBD
 
 ### 💻 Tecnologias
 
