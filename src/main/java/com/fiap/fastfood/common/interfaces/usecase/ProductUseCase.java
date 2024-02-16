@@ -1,9 +1,9 @@
 package com.fiap.fastfood.common.interfaces.usecase;
 
+import com.fiap.fastfood.common.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.common.interfaces.gateways.ProductGateway;
 import com.fiap.fastfood.core.entity.Product;
 import com.fiap.fastfood.core.entity.ProductTypeEnum;
-import com.fiap.fastfood.common.exceptions.custom.EntityNotFoundException;
 
 import java.util.List;
 

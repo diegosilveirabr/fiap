@@ -1,7 +1,7 @@
 package com.fiap.fastfood.common.builders;
 
-import com.fiap.fastfood.external.orm.ItemORM;
 import com.fiap.fastfood.core.entity.Item;
+import com.fiap.fastfood.external.orm.ItemORM;
 
 public class ItemBuilder {
 

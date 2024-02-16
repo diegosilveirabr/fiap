@@ -1,9 +1,9 @@
 package com.fiap.fastfood.core.usecase;
 
+import com.fiap.fastfood.common.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.common.interfaces.gateways.ClientGateway;
 import com.fiap.fastfood.common.interfaces.usecase.ClientUseCase;
 import com.fiap.fastfood.core.entity.Client;
-import com.fiap.fastfood.common.exceptions.custom.EntityNotFoundException;
 
 public class ClientUseCaseImpl implements ClientUseCase {
 

@@ -1,25 +1,24 @@
 package com.fiap.fastfood.communication.gateways;
 
+import com.fiap.fastfood.common.builders.ProductBuilder;
 import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoProductRepository;
 import com.fiap.fastfood.common.interfaces.gateways.ProductGateway;
-import com.fiap.fastfood.common.builders.ProductBuilder;
-import com.fiap.fastfood.external.orm.ProductTypeEnumORM;
 import com.fiap.fastfood.core.entity.Product;
 import com.fiap.fastfood.core.entity.ProductTypeEnum;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fiap.fastfood.external.orm.ProductTypeEnumORM;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-@RequiredArgsConstructor
 @Component
 public class ProductGatewayImpl implements ProductGateway {
 
-    @Autowired
-    SpringDataMongoProductRepository repository;
+    private final SpringDataMongoProductRepository repository;
+
+    public ProductGatewayImpl(SpringDataMongoProductRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public void deleteProduct(String id) {

@@ -1,12 +1,12 @@
 package com.fiap.fastfood.common.builders;
 
-import com.fiap.fastfood.external.orm.ProductORM;
-import com.fiap.fastfood.external.orm.ProductTypeEnumORM;
 import com.fiap.fastfood.common.dto.request.BaseProductResponse;
 import com.fiap.fastfood.common.dto.request.CreateProductRequest;
 import com.fiap.fastfood.common.dto.request.UpdateProductRequest;
 import com.fiap.fastfood.core.entity.Product;
 import com.fiap.fastfood.core.entity.ProductTypeEnum;
+import com.fiap.fastfood.external.orm.ProductORM;
+import com.fiap.fastfood.external.orm.ProductTypeEnumORM;
 
 import java.time.LocalDateTime;
 

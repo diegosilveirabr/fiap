@@ -1,9 +1,9 @@
 package com.fiap.fastfood.common.builders;
 
-import com.fiap.fastfood.external.orm.ClientORM;
 import com.fiap.fastfood.common.dto.request.RegisterClientRequest;
 import com.fiap.fastfood.common.dto.response.GetClientResponse;
 import com.fiap.fastfood.core.entity.Client;
+import com.fiap.fastfood.external.orm.ClientORM;
 
 import java.time.LocalDateTime;
 

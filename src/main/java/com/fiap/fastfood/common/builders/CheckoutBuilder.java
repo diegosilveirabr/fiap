@@ -1,9 +1,9 @@
 package com.fiap.fastfood.common.builders;
 
-import com.fiap.fastfood.external.orm.CheckoutORM;
 import com.fiap.fastfood.common.dto.request.CheckoutRequest;
 import com.fiap.fastfood.common.dto.response.CheckoutResponse;
 import com.fiap.fastfood.core.entity.Checkout;
+import com.fiap.fastfood.external.orm.CheckoutORM;
 
 public class CheckoutBuilder {
 

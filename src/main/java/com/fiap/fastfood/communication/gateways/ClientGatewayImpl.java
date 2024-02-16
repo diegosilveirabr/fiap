@@ -1,17 +1,19 @@
 package com.fiap.fastfood.communication.gateways;
 
+import com.fiap.fastfood.common.builders.ClientBuilder;
 import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoClientRepository;
 import com.fiap.fastfood.common.interfaces.gateways.ClientGateway;
-import com.fiap.fastfood.common.builders.ClientBuilder;
 import com.fiap.fastfood.core.entity.Client;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@RequiredArgsConstructor
 @Component
 public class ClientGatewayImpl implements ClientGateway {
 
     private final SpringDataMongoClientRepository repository;
+
+    public ClientGatewayImpl(SpringDataMongoClientRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public Client saveClient(Client client) {

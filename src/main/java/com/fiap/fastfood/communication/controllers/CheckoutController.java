@@ -1,7 +1,10 @@
 package com.fiap.fastfood.communication.controllers;
 
+import com.fiap.fastfood.common.builders.CheckoutBuilder;
+import com.fiap.fastfood.common.dto.request.CheckoutRequest;
+import com.fiap.fastfood.common.dto.response.CheckoutResponse;
+import com.fiap.fastfood.common.interfaces.gateways.CheckoutGateway;
 import com.fiap.fastfood.common.interfaces.usecase.CheckoutUseCase;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,19 +13,29 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/checkout")
-@RequiredArgsConstructor
 public class CheckoutController {
 
-    private final CheckoutUseCase checkoutUseCase;
+    private final CheckoutGateway gateway;
+    private final CheckoutUseCase useCase;
+
+    public CheckoutController(CheckoutGateway checkoutGateway, CheckoutUseCase checkoutUseCase) {
+        this.gateway = checkoutGateway;
+        this.useCase = checkoutUseCase;
+    }
+
 
     @PostMapping
     public void checkout(@RequestBody CheckoutRequest request) {
-        checkoutUseCase.submit(CheckoutBuilder.fromRequestToDomain(request));
+        final var checkoutReq = CheckoutBuilder.fromRequestToDomain(request);
+
+        useCase.submit(checkoutReq, gateway);
     }
 
     @GetMapping
     public ResponseEntity<List<CheckoutResponse>> findAll() {
-        return ResponseEntity.ok(checkoutUseCase.findAll().stream()
+        final var result = useCase.findAll(gateway);
+
+        return ResponseEntity.ok(result.stream()
                 .map(CheckoutBuilder::fromDomainToResponse)
                 .collect(Collectors.toList()));
     }
