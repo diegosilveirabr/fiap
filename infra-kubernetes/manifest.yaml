@@ -1,34 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastfood-fiap
+  name: fastfood-fiap-deployment
 spec:
   selector:
     matchLabels:
       app: fastfood-fiap
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
         app: fastfood-fiap
     spec:
       containers:
-        - name:  fastfood-fiap-api
+        - name: fastfood-fiap-api
           image: ghbalbuquerque/fastfood-fiap-api:latest
           env:
             - name: DB_HOST
-              value: mongo
+              value: mongodb-service
           ports:
-            - containerPort: 80
-        - name: mongo
-          image: mongo:latest
-          env:
-            - name: MONGO_INITDB_USERNAME
-              value: admin
-            - name: MONGO_INITDB_PASSWORD
-              value: password
-          ports:
-            - containerPort: 27017
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
