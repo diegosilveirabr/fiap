@@ -15,13 +15,13 @@ spec:
       containers:
         - name: mongo
           image: mongo:latest
+          ports:
+            - containerPort: 27017
           env:
             - name: MONGO_INITDB_USERNAME
               value: admin
             - name: MONGO_INITDB_PASSWORD
               value: password
-          ports:
-            - containerPort: 27017
           volumeMounts:
             - name: mongodb-scripts
               mountPath: /docker-entrypoint-initdb.d
