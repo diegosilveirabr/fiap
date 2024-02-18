@@ -73,7 +73,7 @@ Faça o download ou clone este projeto. É preciso ter:
 🚨 Passo-a-passo:
 
 1. Abra o projeto no seu explorador de arquivos 
-2. Migre para a pasta infra-docker-fiap-fastfood e, no terminal, execute o comando: ```docker-compose up --build```
+2. Migre para a pasta infra-docker e, no terminal, execute o comando: ```docker-compose up --build```
 3. Um container com a aplicação e um banco de dados MongoDB serão inicializados nas portas 8080 e 27017 respectivamente
    1. Se possuir Docker Desktop, veja os containers rodando nele.
 4. Para chamar os endpoints, você pode ver as rotas no link ```http://localhost:8080/swagger-ui/index.html```
@@ -93,7 +93,7 @@ Faça o download ou clone este projeto e abra em uma IDE (preferencialmente Inte
 1. Prepare sua IDE colocando o Java 17 nas configurações do projeto
 2. Importe um projeto como um projeto Gradle (botão direito em ```src > build.gradle > import Gradle Project```)
 3. Aguarde a instalação das dependências
-4. Migre para a pasta infra-docker-fiap-fastfood e, no terminal, execute o comando: ```docker-compose -f docker-compose-local.yaml up```
+4. Migre para a pasta infra-docker e, no terminal, execute o comando: ```docker-compose -f docker-compose-local.yaml up```
 5. Um container com um banco de dados MongoDB será inicializado na porta 27017
 6. Abra a classe FastFoodApplication e execute a aplicação
 7. Para chamar os endpoints, você pode ver as rotas no link ```http://localhost:8080/swagger-ui/index.html```
