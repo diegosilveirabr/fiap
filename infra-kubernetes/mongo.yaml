@@ -22,6 +22,31 @@ spec:
               value: password
           ports:
             - containerPort: 27017
+          volumeMounts:
+            - name: mongodb-scripts
+              mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
+            - name: mongodb-configmap
+              mountPath: /config
+              readOnly: true
+            - name: mongodb-data
+              mountPath: /data/db
+      volumes:
+        - name: mongodb-scripts
+          configMap:
+            name: mongodb-configmap
+            items:
+              - key: mongo-init.js
+                path: mongo-init.js
+        - name: mongodb-configmap
+          configMap:
+            name: mongodb-configmap
+            items:
+              - key: mongo.conf
+                path: mongo.conf
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
 ---
 apiVersion: v1
 kind: Service
