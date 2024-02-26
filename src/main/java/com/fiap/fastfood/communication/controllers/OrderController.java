@@ -3,7 +3,7 @@ package com.fiap.fastfood.communication.controllers;
 import com.fiap.fastfood.common.builders.OrderBuilder;
 import com.fiap.fastfood.common.dto.request.CreateOrderRequest;
 import com.fiap.fastfood.common.dto.response.GetOrderResponse;
-import com.fiap.fastfood.common.dto.response.GetOrderStatusResponse;
+import com.fiap.fastfood.common.dto.response.GetOrderPaymentStatusResponse;
 import com.fiap.fastfood.common.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.common.interfaces.gateways.OrderGateway;
 import com.fiap.fastfood.common.interfaces.usecase.OrderUseCase;
@@ -39,10 +39,10 @@ public class OrderController {
                 .collect(Collectors.toList()));
     }
 
-    @GetMapping("/{orderId}/status")
-    public ResponseEntity<GetOrderStatusResponse> getOrderStatus(@PathVariable String orderId) throws EntityNotFoundException {
-        return ResponseEntity.ok(GetOrderStatusResponse.builder()
-                .status(useCase.getOrderById(orderId, gateway).getStatus())
+    @GetMapping("/{orderId}/payment-status")
+    public ResponseEntity<GetOrderPaymentStatusResponse> getOrderPaymentStatus(@PathVariable String orderId) throws EntityNotFoundException {
+        return ResponseEntity.ok(GetOrderPaymentStatusResponse.builder()
+                .paymentStatus(useCase.getOrderById(orderId, gateway).getPaymentStatus())
                 .build());
     }
 

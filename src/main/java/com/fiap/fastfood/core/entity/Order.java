@@ -27,6 +27,8 @@ public class Order {
 
     private OrderStatus status;
 
+    private OrderPaymentStatus paymentStatus;
+
     public BigDecimal getTotalValue() {
         return items.stream()
                 .map(Item::getTotalItemValue)
