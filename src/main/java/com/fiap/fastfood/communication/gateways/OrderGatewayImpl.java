@@ -1,6 +1,7 @@
 package com.fiap.fastfood.communication.gateways;
 
 import com.fiap.fastfood.common.builders.OrderBuilder;
+import com.fiap.fastfood.common.exceptions.custom.EntityNotFoundException;
 import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoOrderRepository;
 import com.fiap.fastfood.common.interfaces.gateways.OrderGateway;
 import com.fiap.fastfood.core.entity.Order;
@@ -25,6 +26,13 @@ public class OrderGatewayImpl implements OrderGateway {
     public void saveOrder(Order order) {
         final var orm = OrderBuilder.fromDomainToOrm(order);
         repository.save(orm);
+    }
+
+    @Override
+    public Order getOrderById(String id) throws EntityNotFoundException {
+        return repository.findById(id)
+                .map(OrderBuilder::fromOrmToDomain)
+                .orElseThrow(() -> new EntityNotFoundException("ORDER-01", String.format("Order with ID %s not found", id)));
     }
 
     @Override

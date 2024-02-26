@@ -17,12 +17,12 @@ public class OrderBuilder {
                 .totalValue(order.getTotalValue())
                 .items(order.getItems())
                 .status(order.getStatus())
+                .paymentStatus(order.getPaymentStatus())
                 .build();
     }
 
     public static Order fromRequestToDomain(CreateOrderRequest request) {
         return Order.builder()
-                .status(request.getStatus())
                 .items(request.getItems())
                 .build();
     }
@@ -34,6 +34,7 @@ public class OrderBuilder {
                 .updatedAt(orm.getUpdatedAt())
                 .totalValue(orm.getTotalValue())
                 .status(orm.getStatus())
+                .paymentStatus(orm.getPaymentStatus())
                 .items(
                         orm.getItems().stream().map(ItemBuilder::fromOrmToDomain).collect(Collectors.toList())
                 )
@@ -47,6 +48,7 @@ public class OrderBuilder {
                 .updatedAt(order.getUpdatedAt())
                 .totalValue(order.getTotalValue())
                 .status(order.getStatus())
+                .paymentStatus(order.getPaymentStatus())
                 .items(
                         order.getItems().stream().map(ItemBuilder::fromDomainToOrm).collect(Collectors.toList())
                 )

@@ -1,6 +1,7 @@
 package com.fiap.fastfood.common.dto.response;
 
 import com.fiap.fastfood.core.entity.Item;
+import com.fiap.fastfood.core.entity.OrderPaymentStatus;
 import com.fiap.fastfood.core.entity.OrderStatus;
 import lombok.*;
 
@@ -20,4 +21,5 @@ public class GetOrderResponse {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private OrderStatus status;
+    private OrderPaymentStatus paymentStatus;
 }
