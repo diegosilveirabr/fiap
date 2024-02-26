@@ -1,6 +1,7 @@
 package com.fiap.fastfood.common.dto.response;
 
 import com.fiap.fastfood.core.entity.Item;
+import com.fiap.fastfood.core.entity.OrderStatus;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -18,4 +19,5 @@ public class GetOrderResponse {
     private BigDecimal totalValue;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private OrderStatus status;
 }

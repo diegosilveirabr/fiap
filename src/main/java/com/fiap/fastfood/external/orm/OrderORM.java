@@ -1,5 +1,6 @@
 package com.fiap.fastfood.external.orm;
 
+import com.fiap.fastfood.core.entity.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,8 @@ public class OrderORM {
     private List<ItemORM> items;
 
     private BigDecimal totalValue;
+
+    private OrderStatus status;
 
     @CreatedDate
     private LocalDateTime createdAt;
