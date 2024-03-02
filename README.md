@@ -61,7 +61,7 @@ Tecnologias utilizadas:
 
 * Github
 * Postman
-* Docker Desktop 
+* Docker Desktop
 * MongoDB Compass
 
 ### 🎬 Getting started - Rodando com docker-compose
@@ -72,14 +72,14 @@ Faça o download ou clone este projeto. É preciso ter:
 
 🚨 Passo-a-passo:
 
-1. Abra o projeto no seu explorador de arquivos 
+1. Abra o projeto no seu explorador de arquivos
 2. Migre para a pasta infra-docker e, no terminal, execute o comando: ```docker-compose up --build```
 3. Um container com a aplicação e um banco de dados MongoDB serão inicializados nas portas 8080 e 27017 respectivamente
    1. Se possuir Docker Desktop, veja os containers rodando nele.
 4. Para chamar os endpoints, você pode ver as rotas no link ```http://localhost:8080/swagger-ui/index.html```
 
 
-### 💿 Getting started - Rodando localmente
+### 💿 Getting started - Rodando localmente com docker
 
 Faça o download ou clone este projeto e abra em uma IDE (preferencialmente IntelliJ).
 É preciso ter:
@@ -98,6 +98,40 @@ Faça o download ou clone este projeto e abra em uma IDE (preferencialmente Inte
 6. Abra a classe FastFoodApplication e execute a aplicação
 7. Para chamar os endpoints, você pode ver as rotas no link ```http://localhost:8080/swagger-ui/index.html```
 
+### 💿 Getting started - Rodando em cluster kubernetes local
+
+Faça o download ou clone este projeto e abra em uma IDE (preferencialmente IntelliJ).
+É preciso ter:
+
+    - Docker instalado na máquina
+    - Kubectl 
+    - Minikube
+    - (opcional) K9s
+
+🚨 Passo-a-passo:
+
+1. Abra o Powershell
+2. Com os três componentes acima instalados, configure o kubectl para usar o minikube com o comando ``` alias kubectl="minikube kubectl --"```
+3. Você pode visualizar os pods rodando no minikube com o comando ```kubectl get pods```
+4. Em outro terminal, navegue para a pasta infra-kubernetes deste projeto
+5. Crie um namespace para conter os serviços do projeto, por exemplo : ```kubectl create namespace fiap-pos-tech```
+6. Altere o  "path" na linha 13 do arquivo "mongo-All.yaml" para um path da sua máquina, se necessário
+7. Execute primeiramente o comando ```kubectl apply -f mongo-All.yaml``` para subir os componentes do pod do Mongo
+8. Execute o comando ```kubectl apply -f manifest.yaml``` para subir os componentes do pod da aplicação
+9. No PowerShell, execute o comando ```minikube tunnel``` para expor externamente a service criada para a aplicação
+10. Para chamar o swagger da aplicação e ver os endpoints disponíveis, acesse ```http://localhost:80/swagger-ui/index.html```
+11. Caso queira remover os serviços em execução, execute os seguintes comandos:
+    ```
+    kubectl delete service fastfood-fiap-deployment -n fiap-pos-tech
+    kubectl delete service fastfood-fiap-service -n fiap-pos-tech
+    kubectl delete deployment  fastfood-fiap-deployment -n fiap-pos-tech
+    kubectl delete service mongodb-service -n fiap-pos-tech
+    kubectl delete statefulset mongo-sfs -n fiap-pos-tech
+    kubectl delete configmap mongodb-configmap -n fiap-pos-tech
+    kubectl delete secret mongodb-secret -n fiap-pos-tech
+    kubectl delete pvc mongodb-pvc -n fiap-pos-tech
+    kubectl delete pv mongodb-pv
+    ```
 
 ## Versioning
 
