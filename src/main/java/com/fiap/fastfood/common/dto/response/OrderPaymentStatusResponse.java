@@ -8,6 +8,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetOrderPaymentStatusResponse {
+public class OrderPaymentStatusResponse {
     private OrderPaymentStatus paymentStatus;
 }

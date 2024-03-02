@@ -1,7 +1,7 @@
 package com.fiap.fastfood.common.builders;
 
 import com.fiap.fastfood.common.dto.request.CreateOrderRequest;
-import com.fiap.fastfood.common.dto.response.GetOrderResponse;
+import com.fiap.fastfood.common.dto.response.OrderResponse;
 import com.fiap.fastfood.core.entity.Order;
 import com.fiap.fastfood.external.orm.OrderORM;
 
@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class OrderBuilder {
 
-    public static GetOrderResponse fromDomainToResponse(Order order) {
-        return GetOrderResponse.builder()
+    public static OrderResponse fromDomainToResponse(Order order) {
+        return OrderResponse.builder()
                 .id(order.getId())
                 .createdAt(order.getCreatedAt())
                 .updatedAt(order.getUpdatedAt())

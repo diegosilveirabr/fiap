@@ -19,6 +19,14 @@ public class OrderUseCaseImpl implements OrderUseCase {
     }
 
     @Override
+    public Order updateStatus(String id, OrderStatus status, OrderGateway orderGateway) throws EntityNotFoundException {
+        Order order = orderGateway.getOrderById(id);
+        order.setStatus(status);
+        orderGateway.saveOrder(order);
+        return order;
+    }
+
+    @Override
     public List<Order> listOrder(OrderGateway orderGateway) {
         return orderGateway.listOrder();
     }
