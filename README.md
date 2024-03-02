@@ -48,6 +48,10 @@ Solução arquitetônica proposta:
 
 ![](misc/fiap-fastfood-architecture-kubernetes-kubernetes.drawio.svg)
 
+Solução arquitetônica estudada (Cloud AWS):
+
+![](misc/fiap-fastfood-architecture-kubernetes-eks.drawio.svg)
+
 ### 💻 Tecnologias
 
 Tecnologias utilizadas:
