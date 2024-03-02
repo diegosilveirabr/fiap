@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetOrderResponse {
+public class OrderResponse {
     private String id;
     private List<Item> items;
     private BigDecimal totalValue;
