@@ -141,6 +141,9 @@ Faça o download ou clone este projeto e abra em uma IDE (preferencialmente Inte
     kubectl delete pv mongodb-pv
     ```
 
+### 📺 Link para o vídeo da aplicação rodando em cluster kubernetes local
+* [Link para a apresentação](https://youtu.be/FVDyVJY-r7w)
+
 ## Versioning
 
 1.0.0.0
