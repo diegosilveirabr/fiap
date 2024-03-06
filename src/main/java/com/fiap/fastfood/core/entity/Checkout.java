@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Checkout {
-
     private String id;
     private String orderId;
     private String status;

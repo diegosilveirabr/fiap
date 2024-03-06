@@ -12,10 +12,10 @@ import java.util.List;
 public class OrderUseCaseImpl implements OrderUseCase {
 
     @Override
-    public void createOrder(Order order, OrderGateway orderGateway) {
+    public Order createOrder(Order order, OrderGateway orderGateway) {
         order.setStatus(OrderStatus.RECEIVED);
         order.setPaymentStatus(OrderPaymentStatus.PENDING);
-        orderGateway.saveOrder(order);
+        return orderGateway.saveOrder(order);
     }
 
     @Override

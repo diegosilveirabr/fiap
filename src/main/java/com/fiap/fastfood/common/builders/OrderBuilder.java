@@ -1,5 +1,6 @@
 package com.fiap.fastfood.common.builders;
 
+import com.fiap.fastfood.common.dto.request.CheckoutRequest;
 import com.fiap.fastfood.common.dto.request.CreateOrderRequest;
 import com.fiap.fastfood.common.dto.response.OrderResponse;
 import com.fiap.fastfood.core.entity.Order;
@@ -22,6 +23,12 @@ public class OrderBuilder {
     }
 
     public static Order fromRequestToDomain(CreateOrderRequest request) {
+        return Order.builder()
+                .items(request.getItems())
+                .build();
+    }
+
+    public static Order fromRequestToDomain(CheckoutRequest request) {
         return Order.builder()
                 .items(request.getItems())
                 .build();

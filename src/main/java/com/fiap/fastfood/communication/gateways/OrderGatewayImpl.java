@@ -23,9 +23,9 @@ public class OrderGatewayImpl implements OrderGateway {
     }
 
     @Override
-    public void saveOrder(Order order) {
+    public Order saveOrder(Order order) {
         final var orm = OrderBuilder.fromDomainToOrm(order);
-        repository.save(orm);
+        return OrderBuilder.fromOrmToDomain(repository.save(orm));
     }
 
     @Override
