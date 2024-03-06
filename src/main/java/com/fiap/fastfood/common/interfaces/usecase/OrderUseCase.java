@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OrderUseCase {
 
-    void createOrder(Order order, OrderGateway orderGateway);
+    Order createOrder(Order order, OrderGateway orderGateway);
 
     Order updateStatus(String id, OrderStatus status, OrderGateway orderGateway) throws EntityNotFoundException;
 

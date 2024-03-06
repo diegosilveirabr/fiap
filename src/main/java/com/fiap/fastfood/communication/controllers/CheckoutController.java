@@ -1,10 +1,13 @@
 package com.fiap.fastfood.communication.controllers;
 
 import com.fiap.fastfood.common.builders.CheckoutBuilder;
+import com.fiap.fastfood.common.builders.OrderBuilder;
 import com.fiap.fastfood.common.dto.request.CheckoutRequest;
 import com.fiap.fastfood.common.dto.response.CheckoutResponse;
 import com.fiap.fastfood.common.interfaces.gateways.CheckoutGateway;
+import com.fiap.fastfood.common.interfaces.gateways.OrderGateway;
 import com.fiap.fastfood.common.interfaces.usecase.CheckoutUseCase;
+import com.fiap.fastfood.common.interfaces.usecase.OrderUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,25 +18,30 @@ import java.util.stream.Collectors;
 @RequestMapping("/checkout")
 public class CheckoutController {
 
-    private final CheckoutGateway gateway;
-    private final CheckoutUseCase useCase;
+    private final CheckoutGateway checkoutGateway;
+    private final OrderGateway orderGateway;
 
-    public CheckoutController(CheckoutGateway checkoutGateway, CheckoutUseCase checkoutUseCase) {
-        this.gateway = checkoutGateway;
-        this.useCase = checkoutUseCase;
+    private final CheckoutUseCase checkoutUseCase;
+    private final OrderUseCase orderUseCase;
+
+    public CheckoutController(CheckoutGateway checkoutGateway, OrderGateway orderGateway, CheckoutUseCase checkoutUseCase, OrderUseCase orderUseCase) {
+        this.checkoutGateway = checkoutGateway;
+        this.orderGateway = orderGateway;
+        this.checkoutUseCase = checkoutUseCase;
+        this.orderUseCase = orderUseCase;
     }
 
-
     @PostMapping
-    public void checkout(@RequestBody CheckoutRequest request) {
-        final var checkoutReq = CheckoutBuilder.fromRequestToDomain(request);
-
-        useCase.submit(checkoutReq, gateway);
+    public CheckoutResponse checkout(@RequestBody CheckoutRequest request) {
+        var order = orderUseCase.createOrder(OrderBuilder.fromRequestToDomain(request), orderGateway);
+        var checkoutReq = CheckoutBuilder.fromRequestToDomain(order.getId());
+        final var checkoutResponse = checkoutUseCase.submit(checkoutReq, checkoutGateway);
+        return CheckoutBuilder.fromDomainToResponse(checkoutResponse);
     }
 
     @GetMapping
     public ResponseEntity<List<CheckoutResponse>> findAll() {
-        final var result = useCase.findAll(gateway);
+        final var result = checkoutUseCase.findAll(checkoutGateway);
 
         return ResponseEntity.ok(result.stream()
                 .map(CheckoutBuilder::fromDomainToResponse)

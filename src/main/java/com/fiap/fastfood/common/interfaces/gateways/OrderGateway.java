@@ -9,7 +9,7 @@ public interface OrderGateway {
 
     List<Order> listOrder();
 
-    void saveOrder(Order order);
+    Order saveOrder(Order order);
 
     Order getOrderById(String id) throws EntityNotFoundException;
 

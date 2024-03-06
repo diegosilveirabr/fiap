@@ -27,8 +27,9 @@ public class OrderController {
     }
 
     @PostMapping
-    public void createOrder(@RequestBody CreateOrderRequest request) {
-        useCase.createOrder(OrderBuilder.fromRequestToDomain(request), gateway);
+    public ResponseEntity<OrderResponse> createOrder(@RequestBody CreateOrderRequest request) {
+        var order = useCase.createOrder(OrderBuilder.fromRequestToDomain(request), gateway);
+        return ResponseEntity.ok(OrderBuilder.fromDomainToResponse(order));
     }
 
     @PutMapping("/{orderId}/update-status")

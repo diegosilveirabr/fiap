@@ -1,16 +1,15 @@
 package com.fiap.fastfood.common.builders;
 
-import com.fiap.fastfood.common.dto.request.CheckoutRequest;
 import com.fiap.fastfood.common.dto.response.CheckoutResponse;
 import com.fiap.fastfood.core.entity.Checkout;
 import com.fiap.fastfood.external.orm.CheckoutORM;
 
 public class CheckoutBuilder {
 
-    public static Checkout fromRequestToDomain(CheckoutRequest request) {
+    public static Checkout fromRequestToDomain(String orderId) {
         return Checkout.builder()
                 .status("In Progress")
-                .orderId(request.getOrderId())
+                .orderId(orderId)
                 .build();
     }
 

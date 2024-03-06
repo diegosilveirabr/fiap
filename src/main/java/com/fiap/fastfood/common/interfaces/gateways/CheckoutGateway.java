@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CheckoutGateway {
 
-    void save(Checkout checkout);
+    Checkout save(Checkout checkout);
 
     List<Checkout> findAll();
 }
