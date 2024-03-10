@@ -6,6 +6,7 @@ import com.fiap.fastfood.common.interfaces.datasources.SpringDataMongoOrderRepos
 import com.fiap.fastfood.common.interfaces.gateways.OrderGateway;
 import com.fiap.fastfood.core.entity.Order;
 import com.fiap.fastfood.core.entity.OrderStatus;
+import com.fiap.fastfood.core.entity.OrderPaymentStatus;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
@@ -42,6 +43,28 @@ public class OrderGatewayImpl implements OrderGateway {
                 .map(OrderBuilder::fromOrmToDomain)
                 .sorted(Comparator.comparing(order -> getOrderStatusPriority(order.getStatus())))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void approveOrder(String id) throws EntityNotFoundException {
+        Order order = repository.findById(id)
+                .map(OrderBuilder::fromOrmToDomain)
+                .orElseThrow(() -> new EntityNotFoundException("ORDER-01", String.format("Order with ID %s not found", id)));
+        order.setPaymentStatus(OrderPaymentStatus.APPROVED);
+
+        final var orm = OrderBuilder.fromDomainToOrm(order);
+        repository.save(orm);
+    }
+
+    @Override
+    public void rejectedOrder(String id) throws EntityNotFoundException {
+        Order order = repository.findById(id)
+                .map(OrderBuilder::fromOrmToDomain)
+                .orElseThrow(() -> new EntityNotFoundException("ORDER-01", String.format("Order with ID %s not found", id)));
+        order.setPaymentStatus(OrderPaymentStatus.REJECTED);
+
+        final var orm = OrderBuilder.fromDomainToOrm(order);
+        repository.save(orm);
     }
 
     private int getOrderStatusPriority(OrderStatus status) {

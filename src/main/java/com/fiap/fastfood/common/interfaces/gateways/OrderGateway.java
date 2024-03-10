@@ -13,4 +13,8 @@ public interface OrderGateway {
 
     Order getOrderById(String id) throws EntityNotFoundException;
 
+    void approveOrder(String id) throws EntityNotFoundException;
+
+    void rejectedOrder(String id) throws EntityNotFoundException;
+
 }

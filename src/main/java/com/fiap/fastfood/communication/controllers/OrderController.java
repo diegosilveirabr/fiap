@@ -54,4 +54,16 @@ public class OrderController {
                 .build());
     }
 
+    @PutMapping("/{orderId}/approved")
+    public ResponseEntity<Object> paymentApproved(@PathVariable String orderId) throws EntityNotFoundException {
+        useCase.approveOrder(orderId, gateway);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{orderId}/rejected")
+    public ResponseEntity<Object> paymentReject(@PathVariable String orderId) throws EntityNotFoundException {
+        useCase.rejectOrder(orderId, gateway);
+        return ResponseEntity.noContent().build();
+    }
+
 }
