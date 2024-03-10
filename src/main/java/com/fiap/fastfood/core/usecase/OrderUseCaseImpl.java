@@ -35,4 +35,14 @@ public class OrderUseCaseImpl implements OrderUseCase {
     public Order getOrderById(String id, OrderGateway orderGateway) throws EntityNotFoundException {
         return orderGateway.getOrderById(id);
     }
+
+    @Override
+    public void approveOrder(String id, OrderGateway orderGateway) throws EntityNotFoundException {
+        orderGateway.approveOrder(id);
+    }
+
+    @Override
+    public void rejectOrder(String id, OrderGateway orderGateway) throws EntityNotFoundException {
+        orderGateway.rejectedOrder(id);
+    }
 }

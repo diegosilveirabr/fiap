@@ -17,4 +17,7 @@ public interface OrderUseCase {
 
     Order getOrderById(String id, OrderGateway orderGateway) throws EntityNotFoundException;
 
+    void approveOrder(String id, OrderGateway orderGateway) throws EntityNotFoundException;
+    void rejectOrder(String id, OrderGateway orderGateway) throws EntityNotFoundException;
+
 }
